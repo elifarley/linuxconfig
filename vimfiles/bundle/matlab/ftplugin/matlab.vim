@@ -21,6 +21,8 @@ endif
 
 setlocal suffixesadd=.m
 setlocal suffixes+=.asv
+setlocal fenc=cp936
+
 " Change the :browse e filter to primarily show M-files
 if has("gui_win32") && !exists("b:browsefilter")
   let  b:browsefilter="M-files (*.m)\t*.m\n" .
@@ -30,5 +32,6 @@ endif
 let b:undo_ftplugin = "setlocal suffixesadd< suffixes< "
       \ . "| unlet! b:browsefilter"
       \ . "| unlet! b:match_words"
+
 
 let &cpo = s:save_cpo
