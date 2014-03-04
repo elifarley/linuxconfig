@@ -11,9 +11,6 @@ let loaded_mypython = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-if !hasmapto('<Plug>RunScript')
-  map <unique> <F5>  <Plug>RunScript
-endif
 noremap <script> <Plug>RunScript  <SID>RunScript
 
 noremenu <script> Plugin.Run\ Script      <SID>RunScript
