@@ -1,5 +1,5 @@
 set nocompatible
-
+let $MYVIM = fnamemodify($MYVIMRC,':p:h')
 " Õ‚π€
 set guifont=Lucida\ Console:h14:cANSI
 "set guifont=Lucida\ Sans\ TypeWriter:h14:cANSI
@@ -104,3 +104,27 @@ nnoremap    <silent>        <leader>nt  :NERDTreeToggle<cr>
 
 " mr
 nnoremap    <silent>        <leader>mr :MRU<cr>
+
+" vimwiki "{{{
+
+let wiki_1 = {}
+let wiki_1.path = '$MYVIM/vimfiles/bundle/vimwiki/site/src/'
+let wiki_1.path_html = '$MYVIM/vimfiles/bundle/vimwiki/site/public_html/'
+let wiki_1.html_template = '~/public_html/template.tpl'
+let wiki_1.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+
+let wiki_2 = {}
+let wiki_2.path = '~/project_docs/'
+let wiki_2.index = 'main'
+
+let g:vimwiki_list = [wiki_1, wiki_2]
+
+let g:vimwiki_folding = 1
+
+augroup filetype_wiki
+    autocmd!
+    autocmd FileType  vimwiki  noremap <buffer> <F4> :Vimwiki2HTML<cr>
+    autocmd FileType  vimwiki  noremap <buffer> <S-F4> :VimwikiAll2HTML<cr>
+    autocmd FileType  vimwiki  nnoremap <buffer> <M-space> :VimwikiToggleListItem<cr>
+augroup END
+"}}}
