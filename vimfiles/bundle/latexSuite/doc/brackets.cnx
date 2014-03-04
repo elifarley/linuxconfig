@@ -1,0 +1,25 @@
+ 	*brackets*
+
+|brackets|
+ 	This ftplugin provides the following maps:
+ . <M-b> encloses the previous character in \mathbf{}
+ . <M-c> is polymorphic as follows:
+     插入模式:
+     1. If the previous character is a letter or number, then capitalize it and
+        enclose it in \mathcal{}
+     2. otherwise insert \cite{}
+     Visual Mode:
+     1. Enclose selection in \mathcal{}
+ . <M-l> is also polymorphic as follows:
+     If the character before typing <M-l> is one of '([{|<q', then do the
+     following:
+       1. (<M-l>       \left(\right
+               similarly for [, |
+          {<M-l>       \left\{\right\}
+       2. <<M-l>       \langle\rangle
+       3. q<M-l>       \lefteqn{}
+     otherwise insert  \label{}
+ 
+ These functions make it extremeley easy to do all the \left \right stuff in
+ latex.
+
